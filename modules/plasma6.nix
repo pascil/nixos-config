@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, kdePackages, ... }:
 
 {
 
@@ -17,6 +17,7 @@ hardware = {
 };
 
 environment.systemPackages = with pkgs; [
+  pkgs.kdePackages.plasma-browser-integration
 ];
 
 xdg.portal.enable = true;
