@@ -21,8 +21,9 @@ environment.systemPackages = with pkgs; [
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
    })
   )
-
+  
   pkgs.mako
+  yambar
   libnotify
   swww
   kitty
