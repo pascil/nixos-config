@@ -4,14 +4,11 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # Dev
-
-    # CLI utils
     hyfetch	    
     fish
     gotop
     git
-    
+    networkmanagerapplet
     neovim
     ungoogled-chromium
     dolphin

@@ -23,7 +23,6 @@ environment.systemPackages = with pkgs; [
   )
   
   pkgs.mako
-  yambar
   libnotify
   swww
   kitty
