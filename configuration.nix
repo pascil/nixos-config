@@ -17,7 +17,7 @@
       ./modules/bootloader.nix
       ./modules/networking.nix
       ./modules/intel.nix
-      ./modules/hyprland.nix
+      ./modules/plasma6.nix
     ];
 
   # Set your time zone.

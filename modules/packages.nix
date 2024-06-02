@@ -17,6 +17,7 @@
     ungoogled-chromium
     dolphin
     nextcloud-client
+    davfs2
   ];
 
   fonts.packages = with pkgs; [
