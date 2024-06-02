@@ -20,7 +20,7 @@ environment.systemPackages = with pkgs; [
 ];
 
 xdg.portal.enable = true;
-xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-qt6 ];
+xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-kde ];
 
 sound.enable = true;
 security.rtkit.enable = true;
