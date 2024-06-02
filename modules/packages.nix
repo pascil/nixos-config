@@ -9,15 +9,13 @@
     fish
     gotop
     git
-    rclone
-    fuse
-    fuse3
     networkmanagerapplet
     neovim
     ungoogled-chromium
     dolphin
     nextcloud-client
-    davfs2
+    vscode-with-extensions
+    libreoffice-qt6-fresh
   ];
 
   fonts.packages = with pkgs; [
