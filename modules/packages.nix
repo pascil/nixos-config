@@ -16,6 +16,7 @@
     neovim
     ungoogled-chromium
     dolphin
+    nextcloud-client
   ];
 
   fonts.packages = with pkgs; [
