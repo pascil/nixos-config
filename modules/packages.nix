@@ -4,15 +4,18 @@
   };
 
   environment.systemPackages = with pkgs; [
+    wget
     hyfetch	    
     fish
     gotop
     git
+    rclone
+    fuse
+    fuse3
     networkmanagerapplet
     neovim
     ungoogled-chromium
     dolphin
-    nextcloud-client
   ];
 
   fonts.packages = with pkgs; [
