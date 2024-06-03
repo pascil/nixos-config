@@ -4,6 +4,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    home-manager
     wget
     hyfetch	    
     fish
