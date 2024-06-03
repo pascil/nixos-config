@@ -11,6 +11,7 @@
     git
     networkmanagerapplet
     neovim
+    mpv
     ungoogled-chromium
     dolphin
     nextcloud-client
@@ -19,6 +20,9 @@
     tailscale
     flatpak
     vesktop
+    element-desktop
+    signal-desktop
+    simplex-chat-desktop
   ];
 
   fonts.packages = with pkgs; [
