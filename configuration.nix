@@ -18,6 +18,7 @@
       ./modules/bootloader.nix
       ./modules/networking.nix
       ./modules/intel.nix
+      ./modules/sound.nix
       ./modules/plasma6.nix
     ];
 
@@ -25,7 +26,7 @@
     extraSpecialArgs = { inherit inputs; };
     users = { pl = import ./home.nix; };
   };
-
+  
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 

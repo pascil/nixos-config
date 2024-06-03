@@ -20,19 +20,11 @@ environment.systemPackages = with pkgs; [
   pkgs.kdePackages.plasma-browser-integration
   pkgs.kdePackages.discover
   pkgs.kdePackages.partitionmanager
+  pkgs.kdePackages.plasma-pa
 ];
 
 xdg.portal.enable = true;
 xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-kde ];
 
-sound.enable = true;
-security.rtkit.enable = true;
-services.pipewire = {
-  enable = true;
-  alsa.enable = true;
-  alsa.support32Bit = true;
-  pulse.enable = true;
-  jack.enable = true;
-};
 
 }

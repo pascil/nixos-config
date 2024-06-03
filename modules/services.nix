@@ -3,6 +3,10 @@
  services.openssh.enable = true;  
 
  services.flatpak.enable = true;
+
+ services.printing.enable = true;
+
+ services.blueman.enable = true;
  
  services.xserver = {
     xkb.layout = "de";
