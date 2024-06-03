@@ -15,16 +15,20 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
+    
+    nixosModules = import ./nixos/modules;
+    homeManagerModules = import ./home/modules;
+
     nixosConfigurations = {
       Pascal-X240 = lib.nixosSystem {
 	inherit system;
-        modules = [ ./configuration.nix ];
+        modules = [ ./nixos/configuration.nix ];
       };
     };
     homeConfigurations = {
       pl = home-manager.lib.homeManagerConfiguration {
      	inherit pkgs;
-        modules = [ ./home.nix ];
+        modules = [ ./home/home.nix ];
       };
     };
   };
