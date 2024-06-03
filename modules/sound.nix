@@ -1,3 +1,6 @@
+{ config, pkgs, ... }:
+{
+
 sound.enable = true;
 security.rtkit.enable = true;
 
@@ -17,3 +20,5 @@ services.pipewire.wireplumber.extraConfig = {
     "bluez.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
   };
 };
+
+}
