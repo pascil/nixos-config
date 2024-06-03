@@ -1,7 +1,9 @@
+{ pkgs, ... }:
+
 {
-  environment.variables = {
-    EDITOR = "nano";
-  };
+
+  environment.shells = with pkgs; [ fish ];
+  users.defaultUserShell = pkgs.fish;  
 
   # Select internationalisation properties.
   i18n.defaultLocale = "de_DE.UTF-8";
