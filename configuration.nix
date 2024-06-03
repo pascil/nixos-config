@@ -7,19 +7,18 @@
 {
   imports = [
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
-      ./modules/packages.nix
-      ./modules/programs.nix
-      ./modules/services.nix
-      ./modules/user.nix
-      ./modules/zram.nix
-      ./modules/trim.nix
-      ./modules/env.nix
-      ./modules/bootloader.nix
-      ./modules/networking.nix
-      ./modules/intel.nix
-      ./modules/sound.nix
-      ./modules/plasma6.nix
+      ./nixos/packages.nix
+      ./nixos/programs.nix
+      ./nixos/services.nix
+      ./nixos/user.nix
+      ./nixos/zram.nix
+      ./nixos/trim.nix
+      ./nixos/env.nix
+      ./nixos/bootloader.nix
+      ./nixos/networking.nix
+      ./nixos/intel.nix
+      ./nixos/sound.nix
+      ./nixos/plasma6.nix
     ];
 
   home-manager = {
