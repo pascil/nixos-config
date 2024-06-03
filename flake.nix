@@ -9,19 +9,22 @@
     };
   };
 
-  outputs = inputs@{self, nixpkgs, home-manager, ... }: {
+  outputs = {self, nixpkgs, home-manager, ... }:
+    let
+      lib = nixpkgs.lib;
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
     nixosConfigurations = {
-      Pascal-X240 = nixpkgs.lib.nixosSystem {
-	system = "x86_64-linux";
-        modules = [ 
-	  ./configuration.nix 
-	  home-manager.nixosModules.home-manager
-	  {
-	    home-manager.useGlobalPkgs = true;
-	    home-manager.useUserPackages = true;
-	    home-manager.users.pl = import ./home.nix;
-	  }
-	];
+      Pascal-X240 = lib.nixosSystem {
+	inherit system;
+        modules = [ ./configuration.nix ];
+      };
+    };
+    homeConfigurations = {
+      pl = home-manager.lib.homeManagerConfiguration {
+     	inherit pkgs;
+        modules = [ ./home.nix ];
       };
     };
   };

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs,  config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -21,11 +21,6 @@
       ./nixos/plasma6.nix
     ];
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = { pl = import ./home.nix; };
-  };
-  
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
