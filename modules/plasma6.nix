@@ -18,6 +18,7 @@ hardware = {
 
 environment.systemPackages = with pkgs; [
   pkgs.kdePackages.plasma-browser-integration
+  pkgs.kdePackages.discover
 ];
 
 xdg.portal.enable = true;
