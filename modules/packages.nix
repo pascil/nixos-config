@@ -18,6 +18,7 @@
     libreoffice-qt6-fresh
     tailscale
     flatpak
+    vesktop
   ];
 
   fonts.packages = with pkgs; [
