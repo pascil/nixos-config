@@ -10,7 +10,6 @@
     ];
     packages = [
       "io.github.unknownskl.greenlight" #Greenlight
-      "sh.cider.Cider" #Cider
     ];
   };
 }
