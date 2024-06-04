@@ -23,7 +23,7 @@
         mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
       })
     )
-    
+
     pkgs.mako
     libnotify
     swww

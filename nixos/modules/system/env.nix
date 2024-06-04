@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   environment.shells = with pkgs; [fish];
   users.defaultUserShell = pkgs.fish;
-  
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
