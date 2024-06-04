@@ -23,7 +23,6 @@
     element-desktop
     signal-desktop
     simplex-chat-desktop
-    cider
   ];
 
   fonts.packages = with pkgs; [
