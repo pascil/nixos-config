@@ -5,21 +5,20 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
-    wget
-    hyfetch	    
     fish
+    wget
+    alejandra
+    hyfetch	    
     gotop
     git
     networkmanagerapplet
     neovim
     mpv
     ungoogled-chromium
-    dolphin
     nextcloud-client
     vscode-with-extensions
     libreoffice-qt6-fresh
     tailscale
-    flatpak
     vesktop
     element-desktop
     signal-desktop
