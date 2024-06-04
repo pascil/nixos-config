@@ -7,18 +7,7 @@
 {
   imports = [
       ./hardware-configuration.nix
-      ./modules/packages.nix
-      ./modules/programs.nix
-      ./modules/services.nix
-      ./modules/user.nix
-      ./modules/zram.nix
-      ./modules/trim.nix
-      ./modules/env.nix
-      ./modules/bootloader.nix
-      ./modules/networking.nix
-      ./modules/intel.nix
-      ./modules/sound.nix
-      ./modules/plasma6.nix
+      ./default.nix
     ];
 
   # Set your time zone.

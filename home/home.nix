@@ -17,8 +17,7 @@
 
 
   imports = [
-      ./modules/git.nix
-      ./modules/fish.nix
+      ./default.nix
     ];
   
 
