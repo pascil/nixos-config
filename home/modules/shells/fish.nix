@@ -4,7 +4,7 @@
     shellAliases = {
       clear = "clear && hyfetch";
       ll = "ls -l";
-      "flatpak search" = "flatpak search --columns=name,application";
+      fs = "flatpak search --columns=name,application";
     };
   };
 }
