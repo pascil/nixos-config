@@ -3,13 +3,16 @@
   
   inputs = {
     nixpkgs = { url = "github:NixOS/nixpkgs/nixos-24.05"; };
+    
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    nix-flatpak = { url = "github:gmodena/nix-flatpak/?ref=v0.4.1"; };
   };
 
-  outputs = {self, nixpkgs, home-manager, ... }:
+  outputs = {self, nixpkgs, home-manager, nix-flatpak, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -28,7 +31,10 @@
     homeConfigurations = {
       pl = home-manager.lib.homeManagerConfiguration {
      	inherit pkgs;
-        modules = [ ./home/home.nix ];
+        modules = [
+          nix-flatpak.homeManagerModules.nix-flatpak 
+          ./home/home.nix 
+        ];
       };
     };
   };
