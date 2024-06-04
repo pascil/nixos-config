@@ -1,7 +1,8 @@
-{ config, pkgs, ... }:
-
 {
-
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./bootloader.nix
     ./env.nix
@@ -11,5 +12,4 @@
     ./trim.nix
     ./zram.nix
   ];
-
 }

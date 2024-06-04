@@ -3,5 +3,5 @@
   networking.useDHCP = false;
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 22 80 443 ];
+  networking.firewall.allowedTCPPorts = [22 80 443];
 }

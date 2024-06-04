@@ -1,14 +1,13 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
+  services.openssh.enable = true;
 
- services.openssh.enable = true;  
+  services.printing.enable = true;
 
- services.printing.enable = true;
- 
- services.xserver = {
+  services.xserver = {
     xkb.layout = "de";
     xkb.variant = "nodeadkeys";
   };
-  
+
   services.displayManager = {
     sddm.enable = true;
     sddm.wayland.enable = true;
@@ -18,5 +17,4 @@
     enable = true;
     useRoutingFeatures = "both";
   };
-  
 }

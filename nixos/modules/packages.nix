@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -8,7 +8,7 @@
     fish
     wget
     alejandra
-    hyfetch	    
+    hyfetch
     gotop
     git
     networkmanagerapplet
@@ -27,18 +27,18 @@
   ];
 
   fonts.packages = with pkgs; [
-     noto-fonts
-     noto-fonts-cjk
-     noto-fonts-emoji
-     liberation_ttf
-     fira-code
-     fira-code-symbols
-     mplus-outline-fonts.githubRelease
-     dina-font
-     proggyfonts
-     font-awesome
-     powerline-fonts
-     powerline-symbols
-     nerdfonts
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+    font-awesome
+    powerline-fonts
+    powerline-symbols
+    nerdfonts
   ];
 }

@@ -1,7 +1,8 @@
-{ config, pkgs, ... }:
-
 {
-
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./modules/user.nix
     ./modules/packages.nix
@@ -10,5 +11,4 @@
     ./modules/system/system.nix
     ./modules/desktop/desktop.nix
   ];
-
 }

@@ -1,7 +1,4 @@
-{ pkgs, ... }: 
-
-{
-  
+{pkgs, ...}: {
   programs.git = {
     enable = true;
     userName = "Pascal Leinert";
@@ -12,5 +9,4 @@
       s = "status";
     };
   };
-
 }
