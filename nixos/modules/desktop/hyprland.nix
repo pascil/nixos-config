@@ -23,12 +23,13 @@
         mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
       })
     )
-
+    
     pkgs.mako
     libnotify
     swww
     kitty
     rofi-wayland
+    kdePackages.kwallet
   ];
 
   xdg.portal.enable = true;

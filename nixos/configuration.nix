@@ -11,12 +11,6 @@
     ./default.nix
   ];
 
-  # Set your time zone.
-  time.timeZone = "Europe/Berlin";
-
-  # Configure console keymap
-  console.keyMap = "de";
-
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # This value determines the NixOS release from which the default

@@ -1,6 +1,12 @@
 {pkgs, ...}: {
   environment.shells = with pkgs; [fish];
   users.defaultUserShell = pkgs.fish;
+  
+  # Set your time zone.
+  time.timeZone = "Europe/Berlin";
+
+  # Configure console keymap
+  console.keyMap = "de";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "de_DE.UTF-8";
