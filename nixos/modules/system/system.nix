@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./bootloader.nix
+    ./power.nix
     ./env.nix
     ./sound.nix
     ./intel.nix
