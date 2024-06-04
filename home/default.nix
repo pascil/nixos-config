@@ -3,7 +3,7 @@
 {
 
   imports = [
-    ./modules/git.nix
+    ./modules/dev/dev.nix
     ./modules/shells/shell.nix
   ];
 
