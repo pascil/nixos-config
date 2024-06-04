@@ -39,6 +39,5 @@
     font-awesome
     powerline-fonts
     powerline-symbols
-    nerdfonts
   ];
 }
