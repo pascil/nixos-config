@@ -15,6 +15,7 @@
     neovim
     mpv
     ungoogled-chromium
+    librewolf
     nextcloud-client
     vscode-with-extensions
     libreoffice-qt6-fresh
