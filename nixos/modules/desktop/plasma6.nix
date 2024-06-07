@@ -23,6 +23,7 @@
     pkgs.kdePackages.discover
     pkgs.kdePackages.partitionmanager
     pkgs.kdePackages.plasma-pa
+    pkgs.libsForQt5.bismuth
   ];
 
   xdg.portal.enable = true;
