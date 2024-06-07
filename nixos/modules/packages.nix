@@ -11,11 +11,17 @@
     hyfetch
     gotop
     git
+    distrobox
+    boxbuddy
     networkmanagerapplet
+    networkmanager-openvpn
+    networkmanager-vpnc
+    kdePackages.networkmanager-qt
     neovim
     mpv
     ungoogled-chromium
     librewolf
+    tor-browser
     nextcloud-client
     vscode-with-extensions
     libreoffice-qt6-fresh

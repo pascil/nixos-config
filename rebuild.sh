@@ -24,7 +24,7 @@ sudo nixos-rebuild switch --verbose --flake . &>nixos-switch.log || ( cat nixos-
 nixoscurrent=$(nixos-rebuild list-generations | grep current)
 
 echo "home-manager Rebuilding!"
-home-manager switch --verbose --flake . &>hm-switch.log || ( cat hm-switch.log | grep --color error && echo "home-manager rebuild failed!" && exit 1)
+home-manager switch --verbose --flake . &>hm-switch.log
 
 # Get current home-manager generation
 hmcurrent=$(home-manager generations | grep -m1 "")

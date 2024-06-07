@@ -21,6 +21,7 @@
   }: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
+    fenix = "./overlays/fenix.nix";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosModules = import ./nixos/modules;
