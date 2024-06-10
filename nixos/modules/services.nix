@@ -17,4 +17,8 @@
     enable = true;
     useRoutingFeatures = "both";
   };
+
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
 }
