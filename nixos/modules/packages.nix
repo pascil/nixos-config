@@ -22,6 +22,7 @@
     ungoogled-chromium
     librewolf
     tor-browser
+    gimp
     nextcloud-client
     vscode-with-extensions
     libreoffice-qt6-fresh
