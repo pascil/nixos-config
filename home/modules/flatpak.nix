@@ -9,7 +9,13 @@
       }
     ];
     packages = [
-      "io.github.unknownskl.greenlight" #Greenlight
+      "io.github.unknownskl.greenlight" # Greenlight
+      "org.libreoffice.LibreOffice" # LibreOffice
+      "md.obsidian.Obsidian" # Obsidian
+      "eu.betterbird.Betterbird" # Betterbird
+      "com.ulduzsoft.Birdtray" # Birdtray
+      "io.gpt4all.gpt4all" #GPT4ALL
+      "org.libretro.RetroArch" #RetroArch
     ];
   };
 }
