@@ -11,7 +11,6 @@
     packages = [
       "io.github.unknownskl.greenlight" # Greenlight
       "io.github.hmlendea.geforcenow-electron" # Geforce Now
-      "org.libreoffice.LibreOffice" # LibreOffice
       "md.obsidian.Obsidian" # Obsidian
       "eu.betterbird.Betterbird" # Betterbird
       "com.ulduzsoft.Birdtray" # Birdtray

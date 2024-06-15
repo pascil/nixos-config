@@ -22,6 +22,7 @@
     librewolf
     tor-browser
     gimp
+    libreoffice-qt6-fresh
     nextcloud-client
     vscode-with-extensions
     tailscale
