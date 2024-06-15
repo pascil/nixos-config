@@ -25,7 +25,6 @@
     gimp
     nextcloud-client
     vscode-with-extensions
-    libreoffice-qt6-fresh
     tailscale
     vesktop
     element-desktop
