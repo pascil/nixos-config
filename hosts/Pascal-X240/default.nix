@@ -1,6 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   inputs,
   outputs,
@@ -9,54 +6,55 @@
   utils = import ../../nix/utils.nix {inherit inputs outputs;};
   systemModules = [
     "general"
-    "hardware/adb"
-    "hardware/bluetooth"
-    "hardware/fstrim"
-    "hardware/intel"
-    "hardware/network"
-    "hardware/powerManagement"
-    "hardware/zram"
-    "desktop/wayland"
-    "desktop/xorg"
-    "desktop/kde"
+    "adb"
+    "bluetooth"
+    "fstrim"
+    "intel"
+    "network"
+    "powerManagement"
+    "zram"
+    "wayland"
+    "xorg"
+    "kde"
     "packages"
     "services"
-    "services/tailscale"
+    "tailscale"
     "users"
   ];
   userModules = [
     "programs"
-    "programs/git"
-    "programs/hyfetch"
-    "programs/fish"
+    "git"
+    "hyfetch"
+    "fish"
     "packages"
-    "packages/coding"
-    "packages/flatpak"
-    "packages/instantmessaging"
-    "packages/libreoffice"
-    "packages/multimedia"
-    "packages/networkmanager"
-    "packages/webbrowsers"
+    "coding"
+    "flatpak"
+    "instantmessaging"
+    "libreoffice"
+    "multimedia"
+    "networkmanager"
+    "webbrowsers"
   ];
 in
   utils.addSystemModules systemModules {
     imports = [
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
-  ];
+      inputs.nix-flatpak.nixosModules.nix-flatpak
+    ];
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs;};
-    users = {
-      "pl" = utils.addUserModules userModules {
+    home-manager = {
+      extraSpecialArgs = {inherit inputs;};
+      users = {
+        "pl" = utils.addUserModules userModules {
           home = rec {
             username = "pl";
             homeDirectory = "/home/${username}";
             stateVersion = "24.05";
           };
           programs.home-manager.enable = true;
+        };
       };
     };
-  };
-  system.stateVersion = "24.05";
-}
+    system.stateVersion = "24.05";
+  }

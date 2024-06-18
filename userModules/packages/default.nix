@@ -1,6 +1,6 @@
 {pkgs, config, lib, outputs, ...}: with lib; {
   options = {
-    modules.user.packages.enable = mkEnbaleOption "Enable user packages";
+    modules.user.packages.enable = mkEnableOption "Enable user packages";
   };
 
   config = lib.mkIf config.modules.user.packages.enable {

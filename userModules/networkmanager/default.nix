@@ -1,6 +1,6 @@
 {pkgs, config, lib, outputs, ...}: with lib; {
   options = {
-    modules.user.packages.networkmanager.enable = mkEnbaleOption "Enable user networkmanager packages";
+    modules.user.packages.networkmanager.enable = mkEnableOption "Enable user networkmanager packages";
   };
 
   config = lib.mkIf config.modules.user.packages.networkmanager.enable {

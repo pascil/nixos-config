@@ -5,7 +5,7 @@
 
     config = lib.mkIf config.modules.system.hardware.adb.enable {
         programs.adb.enable = true;
-        servies.udev.packages = [
+        services.udev.packages = [
             pkgs.android-udev-rules
         ];
     };

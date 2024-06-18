@@ -1,16 +1,17 @@
 {pkgs, config, lib, outputs, ...}: with lib; {
   options = {
-    modules.user.packages.libreoffice.enable = mkEnbaleOption "Enable user libreoffice packages";
+    modules.user.packages.coding.enable = mkEnableOption "Enable user coding packages";
   };
 
-  config = lib.mkIf config.modules.user.packages.libreoffice.enable {
+  config = lib.mkIf config.modules.user.packages.coding.enable {
     # Allow certain unfree user-level packages
     nixpkgs.config.allowUnfreePredicate = pkg:
       lib.elem (lib.getName pkg) [
 
       ];
     home.packages = with pkgs; [
-        libreoffice-qt6-fresh
+        vscode-with-extensions
+        neovim
     ];
   };
 }

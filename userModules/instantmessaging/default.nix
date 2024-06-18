@@ -1,6 +1,6 @@
 {pkgs, config, lib, outputs, ...}: with lib; {
   options = {
-    modules.user.packages.instantmessaging.enable = mkEnbaleOption "Enable user instant messaging packages";
+    modules.user.packages.instantmessaging.enable = mkEnableOption "Enable user instant messaging packages";
   };
 
   config = lib.mkIf config.modules.user.packages.instantmessaging.enable {
