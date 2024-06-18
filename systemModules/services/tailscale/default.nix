@@ -1,4 +1,4 @@
-{config, libs, ...}: {
+{config, lib, ...}: with lib;{
     options = {
         modules.system.services.tailscale.enable = lib.mkEnableOption "Enable tailscale service";
     };

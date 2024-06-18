@@ -1,6 +1,6 @@
 {config, lib, pkgs, kdePackages, ...}: {
     options = {
-        modules.system.desktop.kde.enable = lib.mkEnableOption = "Enable KDE configuation";
+        modules.system.desktop.kde.enable = lib.mkEnableOption "Enable KDE configuation";
     };
 
      config = lib.mkIf config.modules.system.desktop.kde.enable {

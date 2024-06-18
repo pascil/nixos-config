@@ -1,9 +1,9 @@
-{config, lib, pkgs, ...}: with libs; {
+{config, lib, pkgs, ...}: with lib; {
     options = {
         modules.system.users.enable = mkEnableOption "Enable default user configuration";
     };
 
-    config = mkIf config.modules.system.users.enable = {
+    config = mkIf config.modules.system.users.enable {
         programs.fish.enable = true;
         users = {
             mutableUsers = false;

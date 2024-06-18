@@ -7,36 +7,36 @@
   ...
 }: let
   utils = import ../../nix/utils.nix {inherit inputs outputs;};
-  addSystemModules = [
+  systemModules = [
     "general"
-    "hardware.adb"
-    "hardware.bluetooth"
-    "hardware.fstrim"
-    "hardware.intel"
-    "hardware.network"
-    "hardware.powerManagement"
-    "hardware.zram"
-    "desktop.wayland"
-    "desktop.xorg"
-    "desktop.kde"
+    "hardware/adb"
+    "hardware/bluetooth"
+    "hardware/fstrim"
+    "hardware/intel"
+    "hardware/network"
+    "hardware/powerManagement"
+    "hardware/zram"
+    "desktop/wayland"
+    "desktop/xorg"
+    "desktop/kde"
     "packages"
     "services"
-    "services.tailscale"
+    "services/tailscale"
     "users"
   ];
   userModules = [
     "programs"
-    "programs.git"
-    "programs.hyfetch"
-    "programs.fish"
+    "programs/git"
+    "programs/hyfetch"
+    "programs/fish"
     "packages"
-    "packages.coding"
-    "packages.flatpak"
-    "packages.instantmessaging"
-    "packages.libreoffice"
-    "packages.multimedia"
-    "packages.networkmanager"
-    "packages.webbrowsers"
+    "packages/coding"
+    "packages/flatpak"
+    "packages/instantmessaging"
+    "packages/libreoffice"
+    "packages/multimedia"
+    "packages/networkmanager"
+    "packages/webbrowsers"
   ];
 in
   utils.addSystemModules systemModules {

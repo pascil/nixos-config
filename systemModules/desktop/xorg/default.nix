@@ -8,6 +8,6 @@
             enable = true;
             xkb.layout = "de";
             xkb.variant = "nodeadkeys";
-        }
+        };
     };
 }
