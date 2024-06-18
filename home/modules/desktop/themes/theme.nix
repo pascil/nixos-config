@@ -1,5 +1,0 @@
-{
-  imports = [
-    ./arc-dark.nix
-  ];
-}

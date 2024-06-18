@@ -5,10 +5,7 @@
 
   config = lib.mkIf config.modules.user.packages.enable {
     # Allow certain unfree user-level packages
-    nixpkgs.config.allowUnfreePredicate = pkg:
-      lib.elem (lib.getName pkg) [
-
-      ];
+    nixpkgs.config.allowUnfree = true;
     home.packages = with pkgs; [
         nextcloud-client
     ];
