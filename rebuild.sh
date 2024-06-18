@@ -18,20 +18,14 @@ alejandra . &>/dev/null || ( alejandra . ; echo "Formatting failed!" && exit 1 )
 git diff -U0 '*.nix'
 
 echo "NixOS Rebuilding!"
-sudo nixos-rebuild switch --verbose --flake . &>nixos-switch.log || ( cat nixos-switch.log | grep --color error && echo "NixOS rebuild failed!" && exit 1)
+sudo nixos-rebuild switch --verbose --flake ~/.nixconf &>nixos-switch.log || ( cat nixos-switch.log | grep --color error && echo "NixOS rebuild failed!" && exit 1)
 
 # Get current NixOS generation
 nixoscurrent=$(nixos-rebuild list-generations | grep current)
 
-echo "home-manager Rebuilding!"
-home-manager switch --verbose --flake . &>hm-switch.log
-
-# Get current home-manager generation
-hmcurrent=$(home-manager generations | grep -m1 "")
-
 # Commit changes with the generation metadata
 
-git ci "NixOS: $nixoscurrent, HM: $hmcurrent"
+git ci "$nixoscurrent"
 
 popd
 

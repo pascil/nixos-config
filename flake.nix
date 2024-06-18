@@ -1,5 +1,5 @@
 {
-  description = "Pascal-X240 Flake";
+  description = "NixOS Flake";
 
   inputs = {
     nixpkgs = {url = "github:NixOS/nixpkgs/nixos-24.05";};
@@ -10,37 +10,23 @@
     };
 
     nix-flatpak = {url = "github:gmodena/nix-flatpak/?ref=v0.4.1";};
+
+    nixvim = {
+        url = "github:nix-community/nixvim/nixos-24.05";
+        # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
-    home-manager,
-    nix-flatpak,
     ...
-  }: let
-    lib = nixpkgs.lib;
-    system = "x86_64-linux";
-    fenix = "./overlays/fenix.nix";
-    pkgs = nixpkgs.legacyPackages.${system};
+  } @ inputs: let
+    inherit (self) outputs;
+    utils = import ./nix/utils.nix {inherit inputs outputs;};
   in {
-    nixosModules = import ./nixos/modules;
-    homeManagerModules = import ./home/modules;
-
-    nixosConfigurations = {
-      Pascal-X240 = lib.nixosSystem {
-        inherit system;
-        modules = [./nixos/configuration.nix];
-      };
-    };
-    homeConfigurations = {
-      pl = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          nix-flatpak.homeManagerModules.nix-flatpak
-          ./home/home.nix
-        ];
-      };
-    };
+   overlays = import ./nix/overlays.nix {inherit inputs;};
+   nixosConfigurations = utils.mkHosts ["Pascal-Server" "Pascal-X240"];
   };
 }
