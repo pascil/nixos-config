@@ -1,0 +1,23 @@
+{lib, config, pkgs, ... }: with lib; {
+    options = {
+        modules.user.programs.hyfetch.enable = lib.mkEnableOption "User Hyfetch configuration";
+    };
+
+    config = lib.mkIf config.modules.user.programs.hyfetch.enable {
+        programs.hyfetch.settings = {
+            preset = "aromantic";
+            mode = "rgb";
+            light_dark = "dark";
+            lightness = 0.65;
+            color_align = {
+                mode = "horizontal";
+                custom_colors = [];
+                fore_back = null;
+            };
+            backend = "neofetch";
+            distro = null;
+            pride_month_shown = [];
+            pride_month_disable = false;
+        };
+    };
+}
