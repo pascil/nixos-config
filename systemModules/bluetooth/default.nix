@@ -1,8 +1,8 @@
 {config, lib, ...}: with lib; {
     options = {
-        modules.system.hardware.bluetooth.enable = mkEnableOption "Enable default Power Management configuration";
+        modules.system.bluetooth.enable = mkEnableOption "Enable default Power Management configuration";
     };
-    config = lib.mkIf config.modules.system.hardware.bluetooth.enable {
+    config = lib.mkIf config.modules.system.bluetooth.enable {
         hardware.bluetooth = {
             enable = true;
             powerOnBoot = true;

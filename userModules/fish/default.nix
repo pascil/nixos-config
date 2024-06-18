@@ -1,9 +1,9 @@
 {lib, config, pkgs, ... }: with lib; {
     options = {
-        modules.user.programs.fish.enable = lib.mkEnableOption "User Fish configuration";
+        modules.user.fish.enable = lib.mkEnableOption "User Fish configuration";
     };
 
-    config = lib.mkIf config.modules.user.programs.fish.enable {
+    config = lib.mkIf config.modules.user.fish.enable {
         programs.fish = {
             enable = true;
             shellAliases = {

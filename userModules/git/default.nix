@@ -1,9 +1,9 @@
 {lib, config, pkgs, ... }: with lib; {
     options = {
-        modules.user.programs.git.enable = lib.mkEnableOption "User Git configuration";
+        modules.user.git.enable = lib.mkEnableOption "User Git configuration";
     };
 
-    config = lib.mkIf config.modules.user.programs.git.enable {
+    config = lib.mkIf config.modules.user.git.enable {
         programs.git = {
             enable = true;
             userName = "Pascal Leinert";

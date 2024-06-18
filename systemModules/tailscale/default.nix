@@ -1,9 +1,9 @@
 {config, lib, ...}: with lib;{
     options = {
-        modules.system.services.tailscale.enable = lib.mkEnableOption "Enable tailscale service";
+        modules.system.tailscale.enable = lib.mkEnableOption "Enable tailscale service";
     };
 
-    config = lib.mkIf config.modules.system.services.tailscale.enable {
+    config = lib.mkIf config.modules.system.tailscale.enable {
         services.tailscale = {
             enable = true;
             useRoutingFeatures = "both";

@@ -28,7 +28,7 @@
     "fish"
     "packages"
     "coding"
-    "flatpak"
+    #"flatpak"
     "instantmessaging"
     "libreoffice"
     "multimedia"

@@ -1,9 +1,9 @@
 {pkgs, config, lib, outputs, ...}: with lib; {
   options = {
-    modules.user.packages.libreoffice.enable = mkEnableOption "Enable user libreoffice packages";
+    modules.user.libreoffice.enable = mkEnableOption "Enable user libreoffice packages";
   };
 
-  config = lib.mkIf config.modules.user.packages.libreoffice.enable {
+  config = lib.mkIf config.modules.user.libreoffice.enable {
     # Allow certain unfree user-level packages
     nixpkgs.config.allowUnfreePredicate = pkg:
       lib.elem (lib.getName pkg) [

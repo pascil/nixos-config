@@ -1,9 +1,9 @@
 {lib, config, pkgs, ... }: with lib; {
     options = {
-        modules.user.packages.flatpak.enable = lib.mkEnableOption "User Flatpak configuration";
+        modules.user.flatpak.enable = lib.mkEnableOption "User Flatpak configuration";
     };
 
-    config = lib.mkIf config.modules.user.packages.flatpak.enable {
+    config = lib.mkIf config.modules.user.flatpak.enable {
         services.flatpak = {
             enable = true;
             update.onActivation = true;

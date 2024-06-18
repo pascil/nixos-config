@@ -1,9 +1,9 @@
 {lib, config, pkgs, ... }: with lib; {
     options = {
-        modules.system.hardware.fstrim.enable = lib.mkEnableOption "Enable trim configuration";
+        modules.system.fstrim.enable = lib.mkEnableOption "Enable trim configuration";
     };
 
-    config = lib.mkIf config.modules.system.hardware.fstrim.enable {
+    config = lib.mkIf config.modules.system.fstrim.enable {
       services.fstrim.enable = true;
     };
 }

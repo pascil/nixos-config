@@ -1,9 +1,9 @@
 {lib, config, pkgs, ... }: with lib; {
     options = {
-        modules.user.programs.hyfetch.enable = lib.mkEnableOption "User Hyfetch configuration";
+        modules.user.hyfetch.enable = lib.mkEnableOption "User Hyfetch configuration";
     };
 
-    config = lib.mkIf config.modules.user.programs.hyfetch.enable {
+    config = lib.mkIf config.modules.user.hyfetch.enable {
         programs.hyfetch.settings = {
             preset = "aromantic";
             mode = "rgb";

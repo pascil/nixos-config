@@ -1,8 +1,8 @@
 {config, lib, pkgs, ...}: with lib; {
   options = {
-    modules.system.hardware.intel.enable = mkEnableOption "Enable default Intel configuration";
+    modules.system.intel.enable = mkEnableOption "Enable default Intel configuration";
   };
-  config = lib.mkIf config.modules.system.hardware.intel.enable {
+  config = lib.mkIf config.modules.system.intel.enable {
     nixpkgs.config.packageOverrides = pkgs: {
       intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
     };
