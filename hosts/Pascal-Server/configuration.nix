@@ -3,45 +3,42 @@
   outputs,
   ...
 }: let
-  utils = import ../../nix/utils.nix {inherit inputs outputs;};
-  systemModules = [
-    "docker"
-    "general"
-    "fstrim"
-    "intel"
-    "ruby"
-    "network"
-    "samba"
-    "zram"
-    "packages"
-    "services"
-  ];
-  userModules = [
-    "git"
-    "hyfetch"
-    "fish"
-  ];
-in
-  utils.addSystemModules systemModules {
+    systemModules = "../../systemModules";
+    userModules = "../../userModules";
+   in {
     imports = [
       ./hardware-configuration.nix
       ./users.nix
-      inputs.home-manager.nixosModules.default
+      systemModules/docker
+      systemModules/general
+      systemModules/fstrim
+      systemModules/intel
+      systemModules/ruby
+      systemModules/network
+      systemModules/samba
+      systemModules/zram
+      systemModules/packes
+      systemModules/services
+
     ];
 
     home-manager = {
-      extraSpecialArgs = {inherit inputs;};
-      users = {
-        "pl" = utils.addUserModules userModules {
-          home = rec {
-            username = "pl";
-            homeDirectory = "/home/${username}";
-            stateVersion = "24.05";
-          };
-          programs.home-manager.enable = true;
+      programs.home-manager.enable = true;
+      home = {
+        username = "pl";
+        homeDirectory = "/home/pl";
+        sessionVariables = {
+          EDITOR = "nano";
         };
+        stateVersion = "24.05";
+      imports = [
+        userModules/git
+        userModules/hyfetch
+        userModules/fish
+      ];
       };
     };
+
     networking.hostName= "Pascal-Server";
     system.stateVersion = "24.05";
   }
