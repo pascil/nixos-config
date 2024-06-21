@@ -17,7 +17,7 @@
       ../../systemModules/network
       ../../systemModules/samba
       ../../systemModules/zram
-      ../../systemModules/packes
+      ../../systemModules/packages
       ../../systemModules/services
 
     ];
