@@ -9,16 +9,16 @@
     imports = [
       ./hardware-configuration.nix
       ./users.nix
-      systemModules/docker
-      systemModules/general
-      systemModules/fstrim
-      systemModules/intel
-      systemModules/ruby
-      systemModules/network
-      systemModules/samba
-      systemModules/zram
-      systemModules/packes
-      systemModules/services
+      ${systemModules}/docker
+      ${systemModules}/general
+      ${systemModules}/fstrim
+      ${systemModules}/intel
+      ${systemModules}/ruby
+      ${systemModules}/network
+      ${systemModules}/samba
+      ${systemModules}/zram
+      ${systemModules}/packes
+      ${systemModules}/services
 
     ];
 
@@ -32,9 +32,9 @@
         };
         stateVersion = "24.05";
       imports = [
-        userModules/git
-        userModules/hyfetch
-        userModules/fish
+        ${userModules}/git
+        ${userModules}/hyfetch
+        ${userModules}/fish
       ];
       };
     };
