@@ -2,17 +2,17 @@
   description = "NixOS Flake";
 
   inputs = {
-    nixpkgs = {url = "github:NixOS/nixpkgs/nixos-24.05";};
+    nixpkgs = {url = "github:NixOS/nixpkgs/nixos-unstable";};
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-flatpak = {url = "github:gmodena/nix-flatpak/?ref=v0.4.1";};
 
     nixvim = {
-        url = "github:nix-community/nixvim/nixos-24.05";
+        url = "github:nix-community/nixvim/";
         # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
         inputs.nixpkgs.follows = "nixpkgs";
     };
