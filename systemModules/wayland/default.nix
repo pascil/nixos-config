@@ -4,11 +4,6 @@
   pkgs,
   ...
 }: {
-  options = {
-    modules.system.wayland.enable = lib.mkEnableOption "Enable general wayland configuration";
-  };
-
-  config = lib.mkIf config.modules.system.wayland.enable {
     # Allows for screen sharing to work
     xdg.portal = {
       enable = true;
@@ -47,5 +42,4 @@
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
     };
-  };
 }

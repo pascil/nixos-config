@@ -1,9 +1,4 @@
 {pkgs, config, lib, outputs, ...}: with lib; {
-  options = {
-    modules.system.packages.enable = mkEnableOption "Enable root packages";
-  };
-
-  config = lib.mkIf config.modules.system.packages.enable {
     nixpkgs.overlays = [outputs.overlays.addPackages];
 
     nixpkgs.config = {
@@ -43,6 +38,4 @@
     ];
 
     programs.fish.enable = true;
-  
-  };
 }

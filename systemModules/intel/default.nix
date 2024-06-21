@@ -1,8 +1,4 @@
 {config, lib, pkgs, ...}: with lib; {
-  options = {
-    modules.system.intel.enable = mkEnableOption "Enable default Intel configuration";
-  };
-  config = lib.mkIf config.modules.system.intel.enable {
     nixpkgs.config.packageOverrides = pkgs: {
       intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
     };
@@ -15,5 +11,5 @@
       ];
     };
     environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";}; # Force intel-media-driver
-  };
+
 }

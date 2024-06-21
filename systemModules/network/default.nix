@@ -1,8 +1,4 @@
 {config, lib, ...}: with lib; {
-  options = {
-    modules.system.network.enable = mkEnableOption "Enable default networking configuration";
-  };
-  config = lib.mkIf config.modules.system.network.enable {
     networking = {
       networkmanager.enable = true;
       firewall = {
@@ -10,5 +6,4 @@
         allowedTCPPorts = [22 80 443];
       };
     };
-  };
 }

@@ -1,14 +1,9 @@
 {lib, config, pkgs, ... }: with lib; {
-    options = {
-        modules.system.samba.enable = lib.mkEnableOption "System Samba configuration";
-    };
-
-    config = lib.mkIf config.modules.system.samba.enable {
-        services.samba = {
-    	    enable = true;
-    	    securityType = "user";
-            openFirewall = true;
-    	    extraConfig = ''
+    services.samba = {
+    	enable = true;
+    	ecurityType = "user";
+      openFirewall = true;
+    	extraConfig = ''
       		workgroup = WORKGROUP
       		server string = smbnix
       		netbios name = smbnix
@@ -21,8 +16,8 @@
       		guest account = nobody
       		map to guest = bad user
     	   '';
-    	   shares = {
-		private = {
+    	shares = {
+				private = {
         		path = "/mnt/storage";
         		browseable = "yes";
         		"read only" = "no";
@@ -42,5 +37,4 @@
 
   	networking.firewall.enable = true;
   	networking.firewall.allowPing = true;
-    };
 }

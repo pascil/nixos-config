@@ -1,13 +1,8 @@
 {lib, config, pkgs, ... }: {
-    options = {
-        modules.system.xorg.enable = lib.mkEnableOption "Enable xorg settings";
+    services.xserver = {
+        enable = true;
+        xkb.layout = "de";
+        xkb.variant = "nodeadkeys";
     };
 
-    config = lib.mkIf config.modules.system.xorg.enable {
-        services.xserver = {
-            enable = true;
-            xkb.layout = "de";
-            xkb.variant = "nodeadkeys";
-        };
-    };
 }
