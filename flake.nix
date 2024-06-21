@@ -34,29 +34,23 @@
 
   };
 
-  outputs = {self, nixpkgs-stable, nixpkgs-unstable, ... } @ inputs:
-    let
-      mkHost = {host, sys, osver}: {
-        lib = if osver == "stable" 
-              then nixpkgs-stable.lib 
-              else if osver == "unstable" 
-              then nixpkgs-unstable.lib
-              else abort "invalid!";
-        ${host} = lib.nixosSystem {
-          system = sys;
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/${host}/configuration.nix
-            home-manager-osver.nixosModules.home-manager
-            nix-flatpak.nixosModules.nix-flatpak
-          ];
+  outputs = inputs@{self, nixpkgs-stable, nixpkgs-unstable, home-manager-stable, home-manager-unstable, ... }: {
+    nixosConfigurations = {
+        Pascal-Server = nixpkgs-stable.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./hosts/Pascal-Server/configuration.nix
+              home-manager-stable.nixosModules.home-manager
+            ];
         };
-      };
-
-    in {
-      nixosConfigurations =
-        # mkHost "${host}" "${sys}" "${osver}" //
-        mkHost "Pascal-Server" "x86_64-linux" "stable" //
-        mkHost "Pascal-X240" "x86_64-linux" "unstable";
+        Pascal-X240 = nixpkgs-unstable.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./hosts/Pascal-Server/configuration.nix
+              home-manager-unstable.nixosModules.home-manager
+              nix-flatpak.nixosModules.nix-flatpak
+            ];
+        };
     };
+  };
 }
