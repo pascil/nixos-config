@@ -34,7 +34,7 @@
 
   };
 
-  outputs = inputs@{self, nixpkgs-stable, nixpkgs-unstable, home-manager-stable, home-manager-unstable, ... }: {
+  outputs = inputs@{self, nixpkgs-stable, nixpkgs-unstable, home-manager-stable, home-manager-unstable, nix-flatpak, ... }: {
     nixosConfigurations = {
         Pascal-Server = nixpkgs-stable.lib.nixosSystem {
             system = "x86_64-linux";
