@@ -1,4 +1,4 @@
-{config, libs, ...}: {
+{config, lib	, ...}: {
     options = {
         modules.system.docker.enable = lib.mkEnableOption "Enable docker service";
     };
@@ -9,7 +9,7 @@
             enableOnBoot = true;
             storageDriver = "btrfs";
             autoPrune.dates = "weekly";
-            daemon.settings = {ipv6 = true;};
+            liveRestore = false;
         };
     };
 }

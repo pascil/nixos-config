@@ -13,10 +13,8 @@
     "network"
     "samba"
     "zram"
-    "xorg"
     "packages"
     "services"
-    "tailscale"
   ];
   userModules = [
     "git"

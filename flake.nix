@@ -2,18 +2,18 @@
   description = "NixOS Flake";
 
   inputs = {
-    nixpkgs-stable = {url = "github:NixOS/nixpkgs/nixos-24.05";};
+    nixpkgs = {url = "github:NixOS/nixpkgs/nixos-24.05";};
 
-    home-manager-stable = {
+    home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak-stable = {url = "github:gmodena/nix-flatpak/?ref=v0.4.1";};
+    nix-flatpak = {url = "github:gmodena/nix-flatpak/?ref=v0.4.1";};
 
-    nixvim-stable = {
+    nixvim = {
         url = "github:nix-community/nixvim/nixos-24.05";
         # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
-        inputs.nixpkgs.follows = "nixpkgs-stable";
+        inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Unstable
@@ -37,7 +37,7 @@
 
   outputs = {
     self,
-    nixpkgs-stable,
+    nixpkgs,
     nixpkgs-unstable,
     ...
   } @ inputs: let

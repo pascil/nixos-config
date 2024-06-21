@@ -32,24 +32,16 @@
 in {
   addSystemModules = addModulesTo "system";
   addUserModules = addModulesTo "user";
-
+  
   mkHosts = let
-    mkHost = dev: {
-      if (head devices) == "Pascal-Server"
-      then ${dev} = inputs.nixpkgs-stable.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          ../hosts/${dev}
-        ];
-      };
-      else ${dev} = inputs.nixpkgs-unstable.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          ../hosts/${dev}
-        ];
-      };  
-
-    };
+    	mkHost = dev: {
+      		${dev} = inputs.nixpkgs.lib.nixosSystem {
+        		specialArgs = {inherit inputs outputs;};
+        		modules = [
+          			../hosts/${dev}
+        		];
+      		};
+    	};
     f = with builtins;
       devices:
         if devices != []
