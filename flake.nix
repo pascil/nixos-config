@@ -47,7 +47,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/${host}/configuration.nix
-            home-manager-${osver}.nixosModules.home-manager
+            home-manager-osver.nixosModules.home-manager
             nix-flatpak.nixosModules.nix-flatpak
           ];
         };
