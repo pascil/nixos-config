@@ -36,9 +36,8 @@
 
   outputs = {self, nixpkgs-stable, nixpkgs-unstable, ... } @ inputs:
     let
-      mkHost = host: sys: osver: {
-        lib = nixpkgs-${osver}.lib;
-        ${host} = lib.nixosSystem {
+      mkHost = {host, sys, osver}: {
+        ${host} = nixpkgs-${osver}.lib.nixosSystem {
           system = ${sys};
           specialArgs = { inherit inputs; };
           modules = [
