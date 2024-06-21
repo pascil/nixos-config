@@ -35,7 +35,7 @@ in {
 
   mkHosts = let
     mkHost = dev: {
-      ${dev} = inputs.nixpkgs.lib.nixosSystem {
+      ${dev} = inputs.nixpkgs-unstable.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           ../hosts/${dev}
