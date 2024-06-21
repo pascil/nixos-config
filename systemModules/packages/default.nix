@@ -1,4 +1,4 @@
-{pkgs, config, lib, outputs, ...}: with lib; {
+{pkgs, config, lib, ...}: with lib; {
     nixpkgs.overlays = [outputs.overlays.addPackages];
 
     nixpkgs.config = {
