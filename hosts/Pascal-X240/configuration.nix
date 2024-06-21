@@ -3,59 +3,29 @@
   outputs,
   ...
 }: let
-  utils = import ../../nix/utils.nix {inherit inputs outputs;};
-  systemModules = [
-    "general"
-    "adb"
-    "bluetooth"
-    "fstrim"
-    "intel"
-    "network"
-    "powerManagement"
-    "zram"
-    "wayland"
-    "xorg"
-    "kde"
-    "packages"
-    "services"
-    "tailscale"
-  ];
-  userModules = [
-    "programs"
-    "git"
-    "hyfetch"
-    "fish"
-    "packages"
-    "coding"
-    #"flatpak"
-    "instantmessaging"
-    "libreoffice"
-    "multimedia"
-    "networkmanager"
-    "webbrowsers"
-  ];
-in
-  utils.addSystemModules systemModules {
+    systemModules = "../../systemModules";
+    userModules = "../../userModules";
+   in {
     imports = [
       ./hardware-configuration.nix
       ./users.nix
-      inputs.home-manager.nixosModules.default
-      inputs.nix-flatpak.nixosModules.nix-flatpak
+      ../../systemModules/bluetooth
+      ../../systemModules/general
+      ../../systemModules/fstrim
+      ../../systemModules/intel
+      ../../systemModules/kde
+      ../../systemModules/ruby
+      ../../systemModules/network
+      ../../systemModules/powerManagement
+      ../../systemModules/samba
+      ../../systemModules/wayland
+      ../../systemModules/xorg
+      ../../systemModules/zram
+      ../../systemModules/packages
+      ../../systemModules/services
+      ../../systemModules/tailscale
     ];
-      
-    home-manager = {
-      extraSpecialArgs = {inherit inputs;};
-      users = {
-        "pl" = utils.addUserModules userModules {
-          home = rec {
-            username = "pl";
-            homeDirectory = "/home/${username}";
-            stateVersion = "24.05";
-          };
-          programs.home-manager.enable = true;
-        };
-      };
-    };
-    networking.hostName = "Pascal-X240";
+
+    networking.hostName= "Pascal-X240";
     system.stateVersion = "24.05";
   }
