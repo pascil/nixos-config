@@ -2,18 +2,18 @@
   description = "NixOS Flake";
 
   inputs = {
-    nixpkgs = {url = "github:NixOS/nixpkgs/nixos-24.05";};
+    nixpkgs-stable = {url = "github:NixOS/nixpkgs/nixos-24.05";};
 
-    home-manager = {
+    home-manager-stable = {
       url = "github:nix-community/home-manager/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     nix-flatpak = {url = "github:gmodena/nix-flatpak/?ref=v0.4.1";};
 
-    nixvim = {
+    nixvim-stable = {
         url = "github:nix-community/nixvim/nixos-24.05";
         # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
-        inputs.nixpkgs.follows = "nixpkgs";
+        inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     # Unstable
@@ -24,7 +24,6 @@
       url = "github:nix-community/home-manager/";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    nix-flatpak-unstable = {url = "github:gmodena/nix-flatpak/?ref=v0.4.1";};
 
     nixvim-unstable = {
         url = "github:nix-community/nixvim/";
@@ -35,16 +34,24 @@
 
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-unstable,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    utils= import ./nix/utils.nix {inherit inputs outputs;};
-  in {
-   overlays = import ./nix/overlays.nix {inherit inputs;};
-   nixosConfigurations  = utils.mkHosts ["Pascal-Server" "Pascal-X240"];
-  };
+  outputs = {self, nixpkgs-stable, nixpkgs-unstable, ... } @ inputs:
+    let
+      mkHost = host: sys: pkgs: {
+        ${host} = nixpkgs-${pkgs}.lib.nixosSystem {
+          system = ${sys};
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/${host}/configuration.nix
+            home-manager-${pkgs}.nixosModules.home-manager
+            nix-flatpak.nixosModules.nix-flatpak
+          ];
+        };
+      };
+
+    in {
+      nixosConfigurations =
+        # mkHost "${host}" "${sys}" "${pkgs}" //
+        mkHost "Pascal-Server" "x86_64-linux" "stable" //
+        mkHost "Pascal-X240" "x86_64-linux" "unstable";
+    };
 }
