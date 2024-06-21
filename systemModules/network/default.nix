@@ -4,7 +4,6 @@
   };
   config = lib.mkIf config.modules.system.network.enable {
     networking = {
-      hostName = "nixos";
       networkmanager.enable = true;
       firewall = {
         enable = true;

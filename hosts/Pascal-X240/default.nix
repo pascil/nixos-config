@@ -42,7 +42,7 @@ in
       inputs.home-manager.nixosModules.default
       inputs.nix-flatpak.nixosModules.nix-flatpak
     ];
-
+      
     home-manager = {
       extraSpecialArgs = {inherit inputs;};
       users = {
@@ -56,5 +56,6 @@ in
         };
       };
     };
+    networking.hostName = "Pascal-X240";
     system.stateVersion = "24.05";
   }

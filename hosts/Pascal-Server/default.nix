@@ -44,5 +44,6 @@ in
         };
       };
     };
+    networking.hostName= "Pascal-Server";
     system.stateVersion = "24.05";
   }
