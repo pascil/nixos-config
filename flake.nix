@@ -36,14 +36,14 @@
 
   outputs = {self, nixpkgs-stable, nixpkgs-unstable, ... } @ inputs:
     let
-      mkHost = host: sys: pkgs: {
-        lib = nixpkgs-${pkgs}.lib;
+      mkHost = host: sys: osver: {
+        lib = nixpkgs-${osver}.lib;
         ${host} = lib.nixosSystem {
           system = ${sys};
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/${host}/configuration.nix
-            home-manager-${pkgs}.nixosModules.home-manager
+            home-manager-${osver}.nixosModules.home-manager
             nix-flatpak.nixosModules.nix-flatpak
           ];
         };
@@ -51,7 +51,7 @@
 
     in {
       nixosConfigurations =
-        # mkHost "${host}" "${sys}" "${pkgs}" //
+        # mkHost "${host}" "${sys}" "${osver}" //
         mkHost "Pascal-Server" "x86_64-linux" "stable" //
         mkHost "Pascal-X240" "x86_64-linux" "unstable";
     };
