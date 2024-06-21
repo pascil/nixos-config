@@ -5,34 +5,23 @@
 }: let
   utils = import ../../nix/utils.nix {inherit inputs outputs;};
   systemModules = [
+    "docker"
     "general"
-    "adb"
-    "bluetooth"
     "fstrim"
     "intel"
+    "ruby"
     "network"
-    "powerManagement"
+    "samba"
     "zram"
-    "wayland"
     "xorg"
-    "kde"
     "packages"
     "services"
     "tailscale"
   ];
   userModules = [
-    "programs"
     "git"
     "hyfetch"
     "fish"
-    "packages"
-    "coding"
-    #"flatpak"
-    "instantmessaging"
-    "libreoffice"
-    "multimedia"
-    "networkmanager"
-    "webbrowsers"
   ];
 in
   utils.addSystemModules systemModules {
@@ -40,7 +29,6 @@ in
       ./hardware-configuration.nix
       ./users.nix
       inputs.home-manager.nixosModules.default
-      inputs.nix-flatpak.nixosModules.nix-flatpak
     ];
 
     home-manager = {
