@@ -6,14 +6,14 @@
 
     home-manager-stable = {
       url = "github:nix-community/home-manager/release-24.05";
-      inputs.nixpkgs-stable.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     nix-flatpak-stable = {url = "github:gmodena/nix-flatpak/?ref=v0.4.1";};
 
     nixvim-stable = {
         url = "github:nix-community/nixvim/nixos-24.05";
         # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
-        inputs.nixpkgs-stable.follows = "nixpkgs";
+        inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     # Unstable
@@ -22,14 +22,14 @@
 
     home-manager-unstable = {
       url = "github:nix-community/home-manager/";
-      inputs.nixpkgs-unstable.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nix-flatpak-unstable = {url = "github:gmodena/nix-flatpak/?ref=v0.4.1";};
 
     nixvim-unstable = {
-        url = "github:nix-community/nixvim/nixos-unstable";
+        url = "github:nix-community/nixvim/";
         # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
-        inputs.nixpkgs-unstable.follows = "nixpkgs";
+        inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
 
@@ -42,11 +42,9 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    utils-stable = import ./nix/utils-stable.nix {inherit inputs outputs;};
-    utils-unstable = import ./nix/utils-unstable.nix {inherit inputs outputs;};
+    utils= import ./nix/utils.nix {inherit inputs outputs;};
   in {
    overlays = import ./nix/overlays.nix {inherit inputs;};
-   nixosConfigurations.stable = utils-stable.mkHosts ["Pascal-Server"];
-   nixosConfigurations.unstable = utils-unstable.mkHosts ["Pascal-X240"];
+   nixosConfigurations  = utils.mkHosts ["Pascal-Server" "Pascal-X240"];
   };
 }

@@ -35,12 +35,20 @@ in {
 
   mkHosts = let
     mkHost = dev: {
-      ${dev} = inputs.nixpkgs-stable.lib.nixosSystem {
+      if (head devices) == "Pascal-Server"
+      then ${dev} = inputs.nixpkgs-stable.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           ../hosts/${dev}
         ];
       };
+      else ${dev} = inputs.nixpkgs-unstable.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ../hosts/${dev}
+        ];
+      };  
+
     };
     f = with builtins;
       devices:
