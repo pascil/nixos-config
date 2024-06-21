@@ -1,7 +1,7 @@
 {lib, config, pkgs, ... }: with lib; {
     services.samba = {
     	enable = true;
-    	ecurityType = "user";
+    	securityType = "user";
       openFirewall = true;
     	extraConfig = ''
       		workgroup = WORKGROUP
