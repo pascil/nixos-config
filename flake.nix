@@ -43,7 +43,7 @@
               then nixpkgs-unstable.lib
               else abort "invalid!";
         ${host} = lib.nixosSystem {
-          system = ${sys};
+          system = sys;
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/${host}/configuration.nix
