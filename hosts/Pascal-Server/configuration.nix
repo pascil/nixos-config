@@ -21,24 +21,7 @@
       ../../systemModules/services
 
     ];
-
-    home-manager = {
-      programs.home-manager.enable = true;
-      home = {
-        username = "pl";
-        homeDirectory = "/home/pl";
-        sessionVariables = {
-          EDITOR = "nano";
-        };
-        stateVersion = "24.05";
-      imports = [
-        ../../userModules/git
-        ../../userModules/hyfetch
-        ../../userModules/fish
-      ];
-      };
-    };
-
+    
     networking.hostName= "Pascal-Server";
     system.stateVersion = "24.05";
   }
