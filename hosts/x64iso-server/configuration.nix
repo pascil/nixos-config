@@ -1,31 +1,28 @@
 {
   inputs,
   outputs,
+  modulesPath,
   ...
 }: let
     systemModules = "../../systemModules";
     userModules = "../../userModules";
    in {
     imports = [
-      ./hardware-configuration.nix
-      ./users.nix
+      "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
       ../../systemModules/general
-      ../../systemModules/desktop/kde
-      ../../systemModules/desktop/wayland
-      ../../systemModules/desktop/xorg
       ../../systemModules/packages
       ../../systemModules/packages/ruby
-      ../../systemModules/programs/adb
-      ../../systemModules/services
-      ../../systemModules/services/tailscale
-      ../../systemModules/system/bluetooth
       ../../systemModules/system/fstrim
       ../../systemModules/system/intel
       ../../systemModules/system/network
-      ../../systemModules/system/powerManagement
       ../../systemModules/system/zram
+      ../../systemModules/services
+      ../../systemModules/services/samba
+      ../../systemModules/virt/docker
+
     ];
 
-    networking.hostName= "Pascal-X240";
+    nixpkgs.hostPlatform = "x86_64-linux";
+    networking.hostName = "PLOS";
     system.stateVersion = "24.05";
   }

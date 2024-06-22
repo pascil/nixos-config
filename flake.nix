@@ -46,9 +46,23 @@
         Pascal-X240 = nixpkgs-unstable.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
-              ./hosts/Pascal-Server/configuration.nix
+              ./hosts/Pascal-X240/configuration.nix
               home-manager-unstable.nixosModules.home-manager
               nix-flatpak.nixosModules.nix-flatpak
+            ];
+        };
+        x64iso-server = nixpkgs-stable.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./hosts/x64iso-minimal/configuration.nix
+              home-manager-stable.nixosModules.home-manager
+            ];
+        };
+        x64iso-kde = nixpkgs-unstable.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./hosts/x64iso-kde/configuration.nix
+              home-manager-unstable.nixosModules.home-manager
             ];
         };
     };

@@ -1,14 +1,14 @@
 {
   inputs,
   outputs,
+  modulesPath,
   ...
 }: let
     systemModules = "../../systemModules";
     userModules = "../../userModules";
    in {
     imports = [
-      ./hardware-configuration.nix
-      ./users.nix
+      "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
       ../../systemModules/general
       ../../systemModules/desktop/kde
       ../../systemModules/desktop/wayland
@@ -26,6 +26,6 @@
       ../../systemModules/system/zram
     ];
 
-    networking.hostName= "Pascal-X240";
+    networking.hostName= "PLOS";
     system.stateVersion = "24.05";
   }

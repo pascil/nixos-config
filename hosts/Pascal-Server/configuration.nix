@@ -9,16 +9,16 @@
     imports = [
       ./hardware-configuration.nix
       ./users.nix
-      ../../systemModules/docker
       ../../systemModules/general
-      ../../systemModules/fstrim
-      ../../systemModules/intel
-      ../../systemModules/ruby
-      ../../systemModules/network
-      ../../systemModules/samba
-      ../../systemModules/zram
       ../../systemModules/packages
+      ../../systemModules/packages/ruby
+      ../../systemModules/system/fstrim
+      ../../systemModules/system/intel
+      ../../systemModules/system/network
+      ../../systemModules/system/zram
       ../../systemModules/services
+      ../../systemModules/services/samba
+      ../../systemModules/virt/docker
 
     ];
 

@@ -17,7 +17,6 @@
       git
       distrobox
       neovim
-      tailscale
     ];
 
     fonts.packages = with pkgs; [
@@ -34,6 +33,4 @@
       powerline-fonts
       powerline-symbols
     ];
-
-    programs.fish.enable = true;
 }
