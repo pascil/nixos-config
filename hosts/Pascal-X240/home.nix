@@ -18,6 +18,7 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
+      inputs.sops-nix.homeManagerModules.sops
       ../../userModules/packages
       ../../userModules/packages/coding
       ../../userModules/packages/instantmessaging
@@ -31,6 +32,18 @@
       ../../userModules/programs/fish
       ../../userModules/services/flatpak
   ];
+ 
+  sops = {
+      age.keyFile = "home/pl/.config/sops/age/keys.txt"
+      defaultSopsFile = ../../secrets.yaml;
+      validateSopsFile = false;
+	
+      secrets = {
+	"private_key/pl" = {
+	  path = "/home/pl/.ssh/id_ed25519";
+	};
+      };
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
