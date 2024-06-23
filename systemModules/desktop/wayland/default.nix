@@ -10,11 +10,11 @@
       config = {
         common = {
           default = [
-            "hyprland"
+            "kde"
           ];
         };
       };
-      extraPortals = [pkgs.xdg-desktop-portal-hyprland];
+      extraPortals = [pkgs.xdg-desktop-portal-kde];
     };
 
     services.pipewire = {
