@@ -44,7 +44,7 @@
     # Other
 
     nix-flatpak = {url = "github:gmodena/nix-flatpak/?ref=v0.4.1";};
-    
+
   };
 
   outputs = inputs@{self, nixpkgs-stable, nixpkgs-unstable, home-manager-stable, home-manager-unstable, nix-flatpak, ... }: {
@@ -54,6 +54,7 @@
             modules = [
               ./hosts/Pascal-Server/configuration.nix
               home-manager-stable.nixosModules.home-manager
+              sops-nix-stable.nixosModules.sops
             ];
         };
         Pascal-X240 = nixpkgs-unstable.lib.nixosSystem {
@@ -62,6 +63,7 @@
               ./hosts/Pascal-X240/configuration.nix
               home-manager-unstable.nixosModules.home-manager
               nix-flatpak.nixosModules.nix-flatpak
+              sops-nix-unstable.nixosModules.sops
             ];
         };
         x64iso-server = nixpkgs-stable.lib.nixosSystem {
@@ -69,6 +71,7 @@
             modules = [
               ./hosts/x64iso-minimal/configuration.nix
               home-manager-stable.nixosModules.home-manager
+              sops-nix-stable.nixosModules.sops
             ];
         };
         x64iso-kde = nixpkgs-unstable.lib.nixosSystem {
@@ -76,6 +79,7 @@
             modules = [
               ./hosts/x64iso-kde/configuration.nix
               home-manager-unstable.nixosModules.home-manager
+              sops-nix-unstable.nixosModules.sops
             ];
         };
     };
