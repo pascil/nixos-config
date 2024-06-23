@@ -5,6 +5,7 @@
   
     environment.systemPackages = with pkgs; [
       age
+      ssh-to-age
       lm_sensors
       wget
       gcc
