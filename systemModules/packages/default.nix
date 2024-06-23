@@ -4,6 +4,7 @@
     };
   
     environment.systemPackages = with pkgs; [
+      age
       lm_sensors
       wget
       gcc
