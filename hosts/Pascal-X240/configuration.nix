@@ -13,6 +13,7 @@
       ../../systemModules/desktop/kde
       ../../systemModules/desktop/wayland
       ../../systemModules/desktop/xorg
+      ../../systemModules/hardware/lenovo
       ../../systemModules/packages
       ../../systemModules/packages/ruby
       ../../systemModules/programs/adb
