@@ -2,7 +2,7 @@
     programs.git = {
         enable = true;
         userName = "Pascal Leinert";
-        userEmail = "codeberg@pascal-leinert.de";
+        userEmail = "git@pascal-leinert.de";
         lfs.enable = true;
         aliases = {
             ci = "commit -vam";
