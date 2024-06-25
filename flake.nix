@@ -44,6 +44,7 @@
     # Other
 
     nix-flatpak = {url = "github:gmodena/nix-flatpak/?ref=v0.4.1";};
+    proxmox-nixos.url = "github:SaumonNet/proxmox-nixos";
 
   };
 
@@ -55,6 +56,7 @@
               ./hosts/Pascal-Server/configuration.nix
               home-manager-stable.nixosModules.home-manager
               sops-nix-stable.nixosModules.sops
+              proxmox-nixos.overlays.${system}
             ];
         };
         Pascal-X240 = nixpkgs-unstable.lib.nixosSystem {
