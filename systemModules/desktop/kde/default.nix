@@ -5,6 +5,6 @@
         pkgs.kdePackages.discover
         pkgs.kdePackages.partitionmanager
         pkgs.kdePackages.plasma-pa
-   	    discover
+	pkgs.kdePackages.krdc
     ];
 }
