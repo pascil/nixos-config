@@ -19,6 +19,7 @@
       ../../systemModules/system/zram
       ../../systemModules/services
       ../../systemModules/services/samba
+      ../../systemModules/services/proxmox
       ../../systemModules/virt/docker
 
     ];

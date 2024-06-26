@@ -48,7 +48,7 @@
 
   };
 
-  outputs = inputs@{self, nixpkgs-stable, nixpkgs-unstable, home-manager-stable, home-manager-unstable, nix-flatpak, sops-nix-stable, sops-nix-unstable,  ... }: {
+  outputs = inputs@{self, nixpkgs-stable, nixpkgs-unstable, home-manager-stable, home-manager-unstable, nix-flatpak, sops-nix-stable, sops-nix-unstable, proxmox-nixos,  ... }: {
     nixosConfigurations = {
         Pascal-Server = nixpkgs-stable.lib.nixosSystem {
             system = "x86_64-linux";
@@ -56,7 +56,7 @@
               ./hosts/Pascal-Server/configuration.nix
               home-manager-stable.nixosModules.home-manager
               sops-nix-stable.nixosModules.sops
-              proxmox-nixos.overlays.${system}
+	      proxmox-nixos.nixosModules.proxmox-ve              
             ];
         };
         Pascal-X240 = nixpkgs-unstable.lib.nixosSystem {
