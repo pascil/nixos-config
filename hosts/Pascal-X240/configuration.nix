@@ -29,14 +29,14 @@
     ];
 
     sops = {
-	defaultSopsFile = ../../secrets.yaml;
-	validateSopsFiles = false;
+	    defaultSopsFile = ../../secrets.yaml;
+	    validateSopsFiles = false;
 	
-	age = {
-	   sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-	   keyFile = "/var/libs/sops-nix/key.txt";
-	   generateKey = true;
-	};
+	    age = {
+	      sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+	      keyFile = "/var/libs/sops-nix/key.txt";
+	      generateKey = true;
+	    };
     };
 	
     networking.hostName= "Pascal-X240";

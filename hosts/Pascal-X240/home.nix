@@ -39,11 +39,11 @@
       validateSopsFile = false;
 	
       secrets = {
-	"private_key/pl" = {
-	  path = "/home/pl/.ssh/id_ed25519";
-	};
+	      "private_key/pl" = {
+	          path = "/home/pl/.ssh/id_ed25519";
+      	};
       };
-  };
+    };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.

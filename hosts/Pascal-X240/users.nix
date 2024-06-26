@@ -10,7 +10,7 @@
                 extraGroups = ["wheel" "networkmanager" "audio" "video" "adbusers"];
                 shell = pkgs.fish;
 		openssh.authorizedKeys.keys = [
-		  (builtins.readFile ./keys/id_ed25519.pub)
+		   (builtins.readFile ./keys/id_ed25519.pub)
 		];
             };
         };
