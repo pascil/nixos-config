@@ -15,11 +15,10 @@
       ../../systemModules/system/fstrim
       ../../systemModules/system/intel
       ../../systemModules/system/network
-      ../../systemModules/system/network/proxmox-vlan
+      #../../systemModules/system/network/proxmox-vlan
       ../../systemModules/system/zram
       ../../systemModules/services
       ../../systemModules/services/samba
-      ../../systemModules/services/proxmox
       ../../systemModules/virt/docker
 
     ];

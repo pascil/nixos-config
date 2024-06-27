@@ -56,13 +56,13 @@
               ./hosts/Pascal-Server/configuration.nix
               home-manager-stable.nixosModules.home-manager
               sops-nix-stable.nixosModules.sops
-	      proxmox-nixos.nixosModules.proxmox-ve
-              ({ pkgs, lib, ... }: {
-            	 services.proxmox-ve.enable = true;
-                 nixpkgs.overlays = [
-                 proxmox-nixos.overlays.${system}
-                 ];
-  	      })              
+	      #proxmox-nixos.nixosModules.proxmox-ve
+              #({ pkgs, lib, ... }: {
+            	# services.proxmox-ve.enable = true;
+                # nixpkgs.overlays = [
+                # proxmox-nixos.overlays."x86_64-linux"
+                # ];
+  	      #})              
             ];
         };
         Pascal-X240 = nixpkgs-unstable.lib.nixosSystem {
