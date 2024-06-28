@@ -1,0 +1,3 @@
+[submodule "macModules"]
+	path = macModules
+	url = git@github.com:tpwrules/nixos-apple-silicon.git
