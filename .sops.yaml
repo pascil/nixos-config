@@ -4,6 +4,7 @@ keys:
   - &hosts:
     - &Pascal-X240 age15jen6m0gv49z9y6x9540ngcs65zhfjjlrgnv4esj75csvsh3pv6qnk8lct
     - &Pascal-Server age1msa45y2dvvgl8rhkw9c5s434c5uhmyjps3aulgnkvsm3yulqupmscy8uy0
+    - &Pascal-Asahi
 creation_rules:
   - path_regex:  secrets.yaml$
     key_groups:
@@ -11,4 +12,5 @@ creation_rules:
       - *pl
       - *Pascal-X240
       - *Pascal-Server
+      - *Pascal-Asahi
 
