@@ -18,7 +18,7 @@
       ../../systemModules/packages
       ../../systemModules/packages/ruby
       ../../systemModules/programs/adb
-      ../../systemModules/systen/bluetooth
+      ../../systemModules/system/bluetooth
       ../../systemModules/system/fstrim
       ../../systemModules/system/network
       ../../systemModules/system/zram
