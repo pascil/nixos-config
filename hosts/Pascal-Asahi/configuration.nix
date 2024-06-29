@@ -35,7 +35,7 @@
          options hid_apple iso_layout=1 fnmode=1
     '';
 
-    hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+    hardware.asahi.peripheralFirmwareDirectory = /etc/nixos/firmware;
    
     
     # Set your time zone.
