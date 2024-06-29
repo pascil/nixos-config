@@ -9,7 +9,7 @@
     userModules = "../../userModules";
    in {
     imports = [
-      ./macModules/apple-silicon-support
+      ../../apple-silicon-support
       ./hardware-configuration.nix
       ./users.nix
       ../../systemModules/desktop/kde
