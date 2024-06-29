@@ -74,6 +74,14 @@
               sops-nix-unstable.nixosModules.sops
             ];
         };
+        Pascal-Asahi = nixpkgs-unstable.lib.nixosSystem {
+            system = "aarch64";
+            modules = [
+              ./hosts/Pascal-Asahi/configuration.nix
+              home-manager-unstable.nixosModules.home-manager
+              sops-nix-unstable.nixosModules.sops
+            ];
+        };
         x64iso-server = nixpkgs-stable.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
