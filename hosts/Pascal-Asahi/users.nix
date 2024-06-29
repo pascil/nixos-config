@@ -1,4 +1,6 @@
 {config, pkgs, ...}: {
+        sops.secrets.pl-password.neededForUsers = true;
+        users.mutableUsers = false;
         users = {
             users.pl = {
                 description = "Pascal Leinert";
@@ -14,7 +16,5 @@
 		        ];
             };
         };
-        sops.secrets.pl-password.neededForUsers = true;
-	    users.mutableUsers = false;
         programs.fish.enable = true;
 }
