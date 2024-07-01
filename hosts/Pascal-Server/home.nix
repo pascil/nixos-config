@@ -18,19 +18,18 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
-      inputs.sops-nix.homeManagerModules.sops
       ../../userModules/programs/git
       ../../userModules/programs/hyfetch
       ../../userModules/programs/fish
   ];
 
    sops = {
-      age.keyFile = "home/pl/.config/sops/age/keys.txt"
+      age.keyFile = "home/pl/.config/sops/age/keys.txt";
       defaultSopsFile = ../../secrets.yaml;
       validateSopsFile = false;
 	
       secrets = {
-	      "private_key/pl" = {
+	      "private_keys/Pascal-Server" = {
 	          path = "/home/pl/.ssh/id_ed25519";
       	};
       };

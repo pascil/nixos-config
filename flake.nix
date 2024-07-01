@@ -69,8 +69,18 @@
             inherit system;
             modules = [
               ./hosts/Pascal-Server/configuration.nix
-              home-manager-stable.nixosModules.home-manager
               sops-nix-stable.nixosModules.sops
+              home-manager-stable.nixosModules.home-manager {
+                home-manager.useGlobalPkgs = true; 
+                home-manager.useUserPackages = true;
+                home-manager.users.pl = {
+                  imports = [ 
+              	     ./hosts/Pascal-Server/home.nix
+ 		                 nix-flatpak.homeManagerModules.nix-flatpak
+                     sops-nix-stable.homeManagerModules.sops 
+                  ];
+     		        };
+              }
             ];
         };
         Pascal-X240 = nixpkgs-unstable.lib.nixosSystem {
@@ -85,19 +95,29 @@
                 home-manager.users.pl = {
                   imports = [ 
               	     ./hosts/Pascal-X240/home.nix
- 		     nix-flatpak.homeManagerModules.nix-flatpak
+ 		                 nix-flatpak.homeManagerModules.nix-flatpak
                      sops-nix-unstable.homeManagerModules.sops 
                   ];
-     		};
+     		        };
               }
             ];
         };
         Pascal-Asahi = nixpkgs-unstable.lib.nixosSystem {
-            system = "aarch64";
+            system = "aarch64-linux";
             modules = [
               ./hosts/Pascal-Asahi/configuration.nix
-              home-manager-unstable.nixosModules.home-manager
               sops-nix-unstable.nixosModules.sops
+              home-manager-unstable.nixosModules.home-manager {
+                home-manager.useGlobalPkgs = true; 
+                home-manager.useUserPackages = true;
+                home-manager.users.pl = {
+                  imports = [ 
+              	     ./hosts/Pascal-Asahi/home.nix
+ 		                 nix-flatpak.homeManagerModules.nix-flatpak
+                     sops-nix-unstable.homeManagerModules.sops 
+                  ];
+     		        };
+              }
             ];
         };
         x64iso-server = nixpkgs-stable.lib.nixosSystem {

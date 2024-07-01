@@ -18,7 +18,6 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   imports = [
-      inputs.sops-nix.homeManagerModules.sops
       ../../userModules/packages/coding
       ../../userModules/packages/instantmessaging
       ../../userModules/packages/libreoffice
@@ -31,12 +30,11 @@
   ];
 
    sops = {
-      age.keyFile = "home/pl/.config/sops/age/keys.txt"
+      age.keyFile = "home/pl/.config/sops/age/keys.txt";
       defaultSopsFile = ../../secrets.yaml;
-      validateSopsFile = false;
 	
       secrets = {
-	      "private_key/pl" = {
+	      "private_keys/Pascal-Asahi" = {
 	          path = "/home/pl/.ssh/id_ed25519";
       	};
       };

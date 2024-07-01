@@ -35,7 +35,6 @@
   sops = {
       age.keyFile = "home/pl/.config/sops/age/keys.txt";
       defaultSopsFile = ../../secrets.yaml;
-      #validateSopsFile = false;
 	
       secrets = {
 	      "private_keys/Pascal-X240" = {
