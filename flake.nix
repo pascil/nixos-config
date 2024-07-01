@@ -48,30 +48,48 @@
 
   };
 
-  outputs = inputs@{self, nixpkgs-stable, nixpkgs-unstable, home-manager-stable, home-manager-unstable, nix-flatpak, sops-nix-stable, sops-nix-unstable, proxmox-nixos,  ... }: {
+  outputs = inputs@{
+    self, 
+    nixpkgs-stable, 
+    nixpkgs-unstable, 
+    home-manager-stable, 
+    home-manager-unstable, 
+    nix-flatpak, 
+    sops-nix-stable, 
+    sops-nix-unstable, 
+    proxmox-nixos,  
+    ... }:
+    let
+      system = "x86_64_linux";
+      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    in {
     nixosConfigurations = {
         Pascal-Server = nixpkgs-stable.lib.nixosSystem {
-            system = "x86_64-linux";
+            inherit system;
             modules = [
               ./hosts/Pascal-Server/configuration.nix
               home-manager-stable.nixosModules.home-manager
               sops-nix-stable.nixosModules.sops
-	      #proxmox-nixos.nixosModules.proxmox-ve
-              #({ pkgs, lib, ... }: {
-            	# services.proxmox-ve.enable = true;
-                # nixpkgs.overlays = [
-                # proxmox-nixos.overlays."x86_64-linux"
-                # ];
-  	      #})              
             ];
         };
         Pascal-X240 = nixpkgs-unstable.lib.nixosSystem {
-            system = "x86_64-linux";
+            inherit system;
             modules = [
               ./hosts/Pascal-X240/configuration.nix
-              home-manager-unstable.nixosModules.home-manager
               nix-flatpak.nixosModules.nix-flatpak
               sops-nix-unstable.nixosModules.sops
+              home-manager-unstable.nixosModules.home-manager {
+                home-manager.useGlobalPkgs = true; 
+                home-manager.useUserPackages = true;
+                home-manager.users.pl = {
+                  imports = [ 
+              	     ./hosts/Pascal-X240/home.nix
+ 		     nix-flatpak.homeManagerModules.nix-flatpak
+                     sops-nix-unstable.homeManagerModules.sops 
+                  ];
+     		};
+              }
             ];
         };
         Pascal-Asahi = nixpkgs-unstable.lib.nixosSystem {
@@ -83,7 +101,7 @@
             ];
         };
         x64iso-server = nixpkgs-stable.lib.nixosSystem {
-            system = "x86_64-linux";
+            inherit system;
             modules = [
               ./hosts/x64iso-minimal/configuration.nix
               home-manager-stable.nixosModules.home-manager
@@ -91,7 +109,7 @@
             ];
         };
         x64iso-kde = nixpkgs-unstable.lib.nixosSystem {
-            system = "x86_64-linux";
+            inherit system;
             modules = [
               ./hosts/x64iso-kde/configuration.nix
               home-manager-unstable.nixosModules.home-manager

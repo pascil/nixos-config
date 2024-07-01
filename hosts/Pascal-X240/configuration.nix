@@ -28,6 +28,8 @@
       ../../systemModules/system/zram
     ];
 
+   # home-manager.users.pl.imports = [./home.nix];
+
     sops = {
 	    defaultSopsFile = ../../secrets.yaml;
 	    validateSopsFiles = false;
