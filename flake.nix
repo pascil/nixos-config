@@ -44,7 +44,6 @@
     # Other
 
     nix-flatpak = {url = "github:gmodena/nix-flatpak/?ref=v0.4.1";};
-    proxmox-nixos.url = "github:SaumonNet/proxmox-nixos";
 
   };
 
@@ -61,8 +60,6 @@
     ... }:
     let
       system = "x86_64_linux";
-      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
-      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     in {
     nixosConfigurations = {
         Pascal-Server = nixpkgs-stable.lib.nixosSystem {
@@ -76,8 +73,7 @@
                 home-manager.users.pl = {
                   imports = [ 
               	     ./hosts/Pascal-Server/home.nix
- 		                 nix-flatpak.homeManagerModules.nix-flatpak
-                     sops-nix-stable.homeManagerModules.sops 
+                     sops-nix-stable.homeManagerModules.sops
                   ];
      		        };
               }
@@ -118,22 +114,6 @@
                   ];
      		        };
               }
-            ];
-        };
-        x64iso-server = nixpkgs-stable.lib.nixosSystem {
-            inherit system;
-            modules = [
-              ./hosts/x64iso-minimal/configuration.nix
-              home-manager-stable.nixosModules.home-manager
-              sops-nix-stable.nixosModules.sops
-            ];
-        };
-        x64iso-kde = nixpkgs-unstable.lib.nixosSystem {
-            inherit system;
-            modules = [
-              ./hosts/x64iso-kde/configuration.nix
-              home-manager-unstable.nixosModules.home-manager
-              sops-nix-unstable.nixosModules.sops
             ];
         };
     };
