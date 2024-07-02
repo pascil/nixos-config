@@ -12,9 +12,7 @@
       ../../apple-silicon-support
       ./hardware-configuration.nix
       ./users.nix
-      ../../systemModules/desktop/kde
-      ../../systemModules/desktop/wayland
-      ../../systemModules/desktop/xorg
+      ../../systemModules/desktop/hyprland
       ../../systemModules/packages
       ../../systemModules/packages/ruby
       ../../systemModules/programs/adb

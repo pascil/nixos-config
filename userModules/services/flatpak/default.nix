@@ -12,8 +12,6 @@
             "io.github.unknownskl.greenlight" # Greenlight
             "io.github.hmlendea.geforcenow-electron" # Geforce Now
             "md.obsidian.Obsidian" # Obsidian
-            "eu.betterbird.Betterbird" # Betterbird
-            "com.ulduzsoft.Birdtray" # Birdtray
             "io.gpt4all.gpt4all" #GPT4ALL
             "org.libretro.RetroArch" #RetroArch
         ];

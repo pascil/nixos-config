@@ -9,7 +9,7 @@
                 uid = 1000;
                 home = "/home/pl";
                 createHome = true;
-                extraGroups = ["wheel" "networkmanager" "audio" "video"];
+                extraGroups = ["wheel" "networkmanager" "audio" "video" "adbusers"];
                 shell = pkgs.fish;
                 openssh.authorizedKeys.keys = [
 		           (builtins.readFile ./keys/id_ed25519.pub)

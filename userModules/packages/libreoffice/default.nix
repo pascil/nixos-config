@@ -5,6 +5,9 @@
 
       ];
     home.packages = with pkgs; [
-        libreoffice-qt6-fresh
+        pkgs.libreoffice-qt6-fresh
+        pkgs.hunspell
+        pkgs.hunspellDicts.de_DE
+        pkgs.hunspellDicts.en_GB-ise
     ];
 }

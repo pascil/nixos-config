@@ -40,11 +40,6 @@
       url = github:Mic92/sops-nix;
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-
-    # Other
-
-    nix-flatpak = {url = "github:gmodena/nix-flatpak/?ref=v0.4.1";};
-
   };
 
   outputs = inputs@{

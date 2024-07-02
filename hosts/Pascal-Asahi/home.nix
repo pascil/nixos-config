@@ -22,11 +22,11 @@
       ../../userModules/packages/instantmessaging
       ../../userModules/packages/libreoffice
       ../../userModules/packages/multimedia
-      ../../userModules/packages/networkmanager
       ../../userModules/packages/webbrowsers
       ../../userModules/programs/git
       ../../userModules/programs/hyfetch
       ../../userModules/programs/fish
+      ../../userModules/services/flatpak
   ];
 
    sops = {
