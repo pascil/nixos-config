@@ -10,7 +10,7 @@ nixpkgs-unstable.lib.nixosSystem {
             home-manager.users.pl = {
                 imports = [ 
               	    ./home.nix
- 		            nix-flatpak.homeManagerModules.nix-flatpak
+ 		            nix-flatpak-unstable.homeManagerModules.nix-flatpak
                     sops-nix-unstable.homeManagerModules.sops 
                 ];
      		};
