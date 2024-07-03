@@ -17,7 +17,6 @@
       ../../systemModules/packages
       ../../systemModules/packages/ruby
       ../../systemModules/programs/adb
-      ../../systemModules/packages/firefox-nightly
       ../../systemModules/services
       ../../systemModules/services/tailscale
       ../../systemModules/system/bluetooth
