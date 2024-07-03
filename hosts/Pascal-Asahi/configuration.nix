@@ -12,7 +12,9 @@
       ../../apple-silicon-support
       ./hardware-configuration.nix
       ./users.nix
-      ../../systemModules/desktop/hyprland
+      ../../systemModules/desktop/kde
+      ../../systemModules/desktop/wayland
+      ../../systemModules/desktop/xorg
       ../../systemModules/packages
       ../../systemModules/packages/ruby
       ../../systemModules/programs/adb
@@ -35,7 +37,7 @@
     '';
 
     hardware.asahi.peripheralFirmwareDirectory = /etc/nixos/firmware;
-   
+    hardware.asahi.useExperimentalGPUDriver = true;
     
     # Set your time zone.
     time.timeZone = "Europe/Berlin";

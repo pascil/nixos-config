@@ -2,7 +2,7 @@
 
     services.xserver = {
         enable = true;
-        xkb.layout = "de-latin1";
+        xkb.layout = "de";
         xkb.variant = "nodeadkeys";
     };
 
@@ -12,14 +12,14 @@
       extraPortals = [pkgs.xdg-desktop-portal-hyprland];
     };
     
-    sound.enable = true;
-    security.rtkit.enable = true;
+    #sound.enable = true;
+    #security.rtkit.enable = true;
 
     services.pipewire = {
       enable = true;
       wireplumber.enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
+      #alsa.enable = true;
+      #alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
     };

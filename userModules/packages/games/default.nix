@@ -2,7 +2,14 @@
     # Allow certain unfree user-level packages
     nixpkgs.config.allowUnfree = true;
     home.packages = with pkgs; [
-        pkgs.nextcloud-client
-        pkgs.htop
+	pkgs.itch
+        pkgs.prismlauncher
+        pkgs.jdk22
+        pkgs.xonotic
+	pkgs.veloren
+	pkgs.mindustry
+	pkgs.endless-sky
+	pkgs.0ad
+	pkgs.cataclysm-dda	
     ];
 }

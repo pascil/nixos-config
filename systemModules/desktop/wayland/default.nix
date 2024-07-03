@@ -17,6 +17,8 @@
       extraPortals = [pkgs.xdg-desktop-portal-kde];
     };
 
+    security.rtkit.enable = true;
+
     services.pipewire = {
       enable = true;
       # For screen sharing

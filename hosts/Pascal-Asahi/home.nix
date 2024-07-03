@@ -18,10 +18,13 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   imports = [
+      ../../userModules/packages
       ../../userModules/packages/coding
+      ../../userModules/packages/games
       ../../userModules/packages/instantmessaging
       ../../userModules/packages/libreoffice
       ../../userModules/packages/multimedia
+      ../../userModules/packages/networkmanager
       ../../userModules/packages/webbrowsers
       ../../userModules/programs/git
       ../../userModules/programs/hyfetch

@@ -8,6 +8,6 @@
         vesktop
         element-desktop
         signal-desktop
-        simplex-chat-desktop
+        #simplex-chat-desktop
     ];
 }
