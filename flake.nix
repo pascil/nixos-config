@@ -22,6 +22,8 @@
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
+    nix-flatpak-stable.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
+
     # Unstable
 
     nixpkgs-unstable = {url = "github:NixOS/nixpkgs/nixos-unstable";};
@@ -40,6 +42,9 @@
       url = github:Mic92/sops-nix;
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    nix-flatpak-unstable.url = "github:gmodena/nix-flatpak";
+
   };
 
   outputs = inputs@{
@@ -48,69 +53,14 @@
     nixpkgs-unstable, 
     home-manager-stable, 
     home-manager-unstable, 
-    nix-flatpak, 
+    nix-flatpak-stable,
+    nix-flatpak-unstable,
     sops-nix-stable, 
-    sops-nix-unstable, 
-    proxmox-nixos,  
+    sops-nix-unstable,  
     ... }:
-    let
-      system = "x86_64_linux";
-    in {
-    nixosConfigurations = {
-        Pascal-Server = nixpkgs-stable.lib.nixosSystem {
-            inherit system;
-            modules = [
-              ./hosts/Pascal-Server/configuration.nix
-              sops-nix-stable.nixosModules.sops
-              home-manager-stable.nixosModules.home-manager {
-                home-manager.useGlobalPkgs = true; 
-                home-manager.useUserPackages = true;
-                home-manager.users.pl = {
-                  imports = [ 
-              	     ./hosts/Pascal-Server/home.nix
-                     sops-nix-stable.homeManagerModules.sops
-                  ];
-     		        };
-              }
-            ];
-        };
-        Pascal-X240 = nixpkgs-unstable.lib.nixosSystem {
-            inherit system;
-            modules = [
-              ./hosts/Pascal-X240/configuration.nix
-              nix-flatpak.nixosModules.nix-flatpak
-              sops-nix-unstable.nixosModules.sops
-              home-manager-unstable.nixosModules.home-manager {
-                home-manager.useGlobalPkgs = true; 
-                home-manager.useUserPackages = true;
-                home-manager.users.pl = {
-                  imports = [ 
-              	     ./hosts/Pascal-X240/home.nix
- 		                 nix-flatpak.homeManagerModules.nix-flatpak
-                     sops-nix-unstable.homeManagerModules.sops 
-                  ];
-     		        };
-              }
-            ];
-        };
-        Pascal-Asahi = nixpkgs-unstable.lib.nixosSystem {
-            system = "aarch64-linux";
-            modules = [
-              ./hosts/Pascal-Asahi/configuration.nix
-              sops-nix-unstable.nixosModules.sops
-              home-manager-unstable.nixosModules.home-manager {
-                home-manager.useGlobalPkgs = true; 
-                home-manager.useUserPackages = true;
-                home-manager.users.pl = {
-                  imports = [ 
-              	     ./hosts/Pascal-Asahi/home.nix
- 		                 nix-flatpak.homeManagerModules.nix-flatpak
-                     sops-nix-unstable.homeManagerModules.sops 
-                  ];
-     		        };
-              }
-            ];
-        };
+    {
+      nixosConfigurations.Pascal-X240 = import ./hosts/Pascal-X240 inputs;
+      nixosConfigurations.Pascal-Server = import ./hosts/Pascal-Server inputs;
+      nixosConfigurations.Pascal-Asahi = import ./hosts/Pascal-Asahi inputs;
     };
-  };
 }

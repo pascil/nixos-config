@@ -19,6 +19,7 @@
       ../../systemModules/system/bluetooth
       ../../systemModules/system/fstrim
       ../../systemModules/system/network
+      ../../systemModules/system/Plymouth
       ../../systemModules/system/zram
       ../../systemModules/services
       ../../systemModules/services/tailscale

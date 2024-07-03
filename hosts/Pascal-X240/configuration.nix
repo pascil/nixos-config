@@ -24,6 +24,7 @@
       ../../systemModules/system/fstrim
       ../../systemModules/system/intel
       ../../systemModules/system/network
+      ../../systemModules/system/Plymouth
       ../../systemModules/system/powerManagement
       ../../systemModules/system/zram
     ];
