@@ -1,4 +1,4 @@
-{ nixpkgs-unstable, home-manager-unstable, nix-flatpak-unstable, sops-nix-unstable, lix-module-unstable ... }:
+{ nixpkgs-unstable, home-manager-unstable, nix-flatpak-unstable, sops-nix-unstable, lix-module-unstable, ... }:
 nixpkgs-unstable.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
