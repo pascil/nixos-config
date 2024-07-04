@@ -1,7 +1,8 @@
-{ nixpkgs-unstable, home-manager-unstable, nix-flatpak-unstable, sops-nix-unstable, lix-module-unstable, ... }:
+{ nixpkgs-unstable, home-manager-unstable, nix-flatpak-unstable, sops-nix-unstable, lix-module-unstable, apple-silicon-support, ... }:
 nixpkgs-unstable.lib.nixosSystem {
     system = "aarch64-linux";
     modules = [
+        apple-silicon-support.nixosModules.default
         ./configuration.nix
         lix-module-unstable.nixosModules.default
         sops-nix-unstable.nixosModules.sops

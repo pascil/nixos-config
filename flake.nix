@@ -55,6 +55,10 @@
       inputs.nixpkgs-unstable.follows = "nixpkgs";
     };
 
+    # Other
+
+    apple-silicon-support = { url = github:tpwrules/nixos-apple-silicon; };
+
   };
 
   outputs = inputs@{
