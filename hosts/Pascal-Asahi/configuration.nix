@@ -16,6 +16,7 @@
       ../../systemModules/desktop/wayland
       ../../systemModules/desktop/xorg
       ../../systemModules/packages
+      ../../systemModules/packages/nix-ld
       ../../systemModules/packages/ruby
       ../../systemModules/programs/adb
       ../../systemModules/system/bluetooth

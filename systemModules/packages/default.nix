@@ -20,6 +20,7 @@
       git
       distrobox
       neovim
+      yarn
     ];
 
     fonts.packages = with pkgs; [
