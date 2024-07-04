@@ -24,6 +24,11 @@
 
     nix-flatpak-stable.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
 
+    lix-module-stable = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0-rc1.tar.gz";
+      inputs.nixpkgs-stable.follows = "nixpkgs";
+    };
+
     # Unstable
 
     nixpkgs-unstable = {url = "github:NixOS/nixpkgs/nixos-unstable";};
@@ -45,6 +50,11 @@
 
     nix-flatpak-unstable.url = "github:gmodena/nix-flatpak";
 
+    lix-module-unstable = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0-rc1.tar.gz";
+      inputs.nixpkgs-unstable.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs@{
@@ -56,7 +66,9 @@
     nix-flatpak-stable,
     nix-flatpak-unstable,
     sops-nix-stable, 
-    sops-nix-unstable,  
+    sops-nix-unstable,
+    lix-module-stable,
+    lix-module-unstable,
     ... }:
     {
       nixosConfigurations.Pascal-X240 = import ./hosts/Pascal-X240 inputs;
