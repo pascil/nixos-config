@@ -57,7 +57,6 @@
 
     # Other
 
-    apple-silicon-support = { url = github:tpwrules/nixos-apple-silicon; };
 
   };
 
@@ -77,6 +76,5 @@
     {
       nixosConfigurations.Pascal-X240 = import ./hosts/Pascal-X240 inputs;
       nixosConfigurations.Pascal-Server = import ./hosts/Pascal-Server inputs;
-      nixosConfigurations.Pascal-Asahi = import ./hosts/Pascal-Asahi inputs;
     };
 }
